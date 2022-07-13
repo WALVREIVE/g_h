@@ -6,13 +6,16 @@ public class Main {
     public static int bossHealth = 700;
     public static int bossDamage = 50;
     public static String bossDefence;
-    public static int[] heroesHealth = {270, 260, 250 , 300};
-    public static int[] heroesDamage = {10, 15, 20 , 0};
-    public static String[] heroesAttackType = {"Physical", "Magical", "Kinetic" , "recovery"};
+    public static int[] heroesHealth = {270, 260, 250, 250, 410};
+    public static int[] heroesDamage = {20, 15, 30, 0, 5};
+    public static String[] heroesAttackType = {"Physical", "Magical", "Kinetic", "recovery", "Golem Tanker"};
+
+
     public static int round_number = 0;
     public static int medicHealth = 300;
     public static int medicDamage = 0;
     public static int medicHealing = 50;
+
     public static void main(String[] args) {
         printStatistics();
         while (!isGameFinished()) {
@@ -32,18 +35,18 @@ public class Main {
         chooseDefence();
         bossHits();
         heroesHit();
-        medicHealing();
+        setMedicHealing();
         printStatistics();
     }
 
-    private static void medicHealing() {
+
+    {
 
     }
 
     {
-   
-   
-   
+
+
     }
 
     public static void bossHits() {
@@ -54,13 +57,19 @@ public class Main {
                 } else {
                     heroesHealth[i] = heroesHealth[i] - bossDamage;
                 }
-                if (heroesHealth[i] < 100 && medicHealth > 0 );
-                System.out.println(heroesHealth [i] + medicHealing);
+                if (heroesHealth[i] < 100 && medicHealth > 0) ;
+                System.out.println(heroesHealth[i] + medicHealing);
                 continue;
             }
         }
-    
+
+        {
+
+        }
+
+
     }
+
     public static void heroesHit() {
         for (int i = 0; i < heroesDamage.length; i++) {
             /*if (bossHealth <= 0) {
@@ -83,7 +92,26 @@ public class Main {
                 }
             }
         }
+
     }
+
+  public static void setMedicHealing(){
+          if (heroesHealth[3] > 0) {
+              for (int i = 0; i < heroesHealth.length; i++) {
+                  if (heroesHealth[i] <= 0) {
+                      heroesHealth[i] = 0;
+                  }
+                  else if (heroesHealth[i] < 100 && heroesHealth[i] > 1) {
+                      System.out.println(heroesHealth[i]);
+                      int minValue = heroesHealth[i];
+                      heroesHealth[i] = minValue + medicHealing;
+                      System.out.println(heroesHealth[i]);
+                      break;
+                  }
+              }
+          }
+
+  }
 
     public static boolean isGameFinished() {
         if (bossHealth <= 0) {
