@@ -57,13 +57,10 @@ public class Main {
                 } else {
                     heroesHealth[i] = heroesHealth[i] - bossDamage;
                 }
-                if (heroesHealth[i] < 100 && medicHealth > 0) ;
-                System.out.println(heroesHealth[i] + medicHealing);
-                continue;
-            }
-        }
 
-        {
+            }
+
+
 
         }
 
